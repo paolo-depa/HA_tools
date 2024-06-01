@@ -2,13 +2,14 @@
 # This script runs the crm_attribute command in a loop, printing the start time, return value, and end time for each iteration.
 # The nodeName is set to the hostname of the current machine.
 # The attributeName should be replaced with the actual attribute name.
-# The lifetime is set to "reboot".
+# If isPermanent is set 1, the lifetime is set to "forever", "reboot" otherwise.
 # If isGet is set to 1, the -G option is added to the crm_attribute command.
+# If isVerbose is set to 1, the -VVVVVV option is added to the crm_attribute command.
 # The output is logged to a file specified by the logFile variable.
 # If logFile is empty, the output will not be redirected and will only be printed to the console.
 
 nodeName=$(hostname)
-attributeName="hana_m05_roles" # replace with your actual attribute name
+attributeName="hana_wq1_roles" # replace with your actual attribute name
 isPermanent=0
 isGet=1
 isVerbose=1
