@@ -13,8 +13,8 @@ isPermanent=0
 isGet=1
 isVerbose=1
 scriptName=$(basename $0)
-#logFile="/var/log/crmattribute_loop.log"
-logFile=""
+logFile="/var/log/crmattribute_loop.log"
+#logFile=""
 
 command="crm_attribute -N $nodeName -n $attributeName"
 
@@ -40,11 +40,11 @@ do
   
   if [ -n "$logFile" ]
   then
-    echo -n "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N') - Executing $command" >> $logFile
+    echo "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N') - Executing $command" >> $logFile
     $command >> $logFile 2>&1
     echo "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N'): Return value: $?" >> $logFile
   else
-    echo -n "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N') - Executing $command"
+    echo "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N') - Executing $command"
     $command
     echo "$scriptName - $(date +'%Y-%m-%d %H:%M:%S.%3N'): Return value: $?"
   fi
